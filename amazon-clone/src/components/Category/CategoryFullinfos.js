@@ -12,7 +12,7 @@ export const categoryinfo = [
   },
   {
     titel: "9.9 Super Shopping Day",
-    name: "men's Clothing",
+    name: "men's lothing",
     imgLink:
       "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/AIS_99SSD25/Fuji_SingleImageCard_99SSD25_2x._SY608_CB803111905_.jpg",
   },
