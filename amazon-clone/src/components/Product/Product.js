@@ -5,18 +5,18 @@ import classes from "./Product.module.css";
 import Loader from "../Loader/Loader";
 const Product = () => {
   const [Products, setProducts] = useState([]);
-  const [isLoading, setisLoading]= useState(false)
+  const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
-     setisLoading(true)
+    setisLoading(true);
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
-        setisLoading(false)
+        setisLoading(false);
       })
       .catch((err) => {
         console.log(err);
-         setisLoading(false);
+        setisLoading(false);
       });
   }, []);
   return (
@@ -27,7 +27,11 @@ const Product = () => {
         <section className={classes.products__container}>
           {Products.map((singleProduct) => {
             return (
-              <ProductCard Product={singleProduct} key={singleProduct.id} />
+              <ProductCard
+                renderAdd={true}
+                Product={singleProduct}
+                key={singleProduct.id}
+              />
             );
           })}
         </section>
