@@ -7,8 +7,11 @@ import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { DataContext } from "../DataProvider.js/DataProvider";
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
-  console.log(basket.length);
+  const [{ basket }] = useContext(DataContext);
+  
+  const totalItem=basket?.reduce((amount,item)=>{
+    return item.amount+amount
+  },0)
   return (
     <>
       <section className={classes.fixed}>
@@ -59,7 +62,7 @@ const Header = () => {
             </Link>
             <Link to="/cart" className={classes.cart}>
               <BiCart />
-              <span>{basket.length}</span>
+              <span>{totalItem}</span>
             </Link>
           </div>
         </section>
