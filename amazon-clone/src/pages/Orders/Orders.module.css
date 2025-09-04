@@ -1,0 +1,126 @@
+/* Center the whole page */
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Amazon logo */
+.login__logo {
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+/* White login box */
+.login__container {
+  width: 350px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.login__container h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.login__container label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.login__container input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #888;
+  border-radius: 3px;
+}
+
+/* Continue button */
+.login__continue {
+  width: 100%;
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login__continue:hover {
+  background: #f7ca00;
+}
+
+/* Small text */
+.login__container p {
+  font-size: 12px;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.login__container p a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.login__container p a:hover {
+  text-decoration: underline;
+}
+
+/* Help link */
+.login__help {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.login__help:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.login__divider {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  margin: 20px 0;
+  color: #555;
+  font-size: 12px;
+}
+
+.login__divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.login__divider span {
+  margin: 0 10px;
+  color: #555;
+}
+
+/* Create account button */
+.login__register {
+  width: 350px;
+  background: #e7e9ec;
+  border: 1px solid #adb1b8;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login__register:hover {
+  background: #d7d9dc;
+}
