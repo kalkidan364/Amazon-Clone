@@ -44,23 +44,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   width: 100%;
   flex: 1;
 }
 .search select,
 .search input {
+  
   padding: 10px;
   font-weight: bold;
   outline: 1px solid white;
 }
 .search select {
   border: none;
+  
   padding: 11px;
   background-color: #d4d4d4;
 }
 .search input {
+  margin-top: 16px;
   border: 1px solid white;
   width: 100%;
   margin-right: -2px;

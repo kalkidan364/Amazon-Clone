@@ -1,7 +1,8 @@
 import { Type  } from "./actiontype";
-export const inttialState={
-    basket:[]
-}
+export const inttialState = {
+  basket: [],
+  user: null,
+};
 export const reducer=(state,action)=>{
     switch(action.type){
         case Type.ADD_TO_BASKET:
@@ -40,6 +41,17 @@ if(newBasket[index].amount>1){
                    ...state,
                    basket:newBasket 
                 }
+
+
+
+case Type.SET_USER:
+    return{
+        ...state,
+        user:action.user
+    }
+
+
+
             default:
               return state;
     }

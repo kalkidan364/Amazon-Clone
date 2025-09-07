@@ -1,4 +1,4 @@
-/*.login_container {
+.login_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,9 +39,10 @@ input {
   border: 1px solid #888;
   border-radius: 4px;
   font-size: 14px;
+  
 }
 
-button {
+form button {
   width: 100%;
   background: #ffd814;
   border: 1px solid #fcd200;
@@ -52,10 +53,19 @@ button {
   font-weight: 600;
 }
 
-button:hover {
-  background: #f7ca00;
+ button:hover {
+  background: var(--primary-shade);
 }
-
+.create{
+width: 100%;
+  margin-top: 30px;
+  border:none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;  
+}
 .terms {
   font-size: 12px;
   margin-top: 15px;
@@ -112,4 +122,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}*/
+}
