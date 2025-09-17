@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import {
   signInWithEmailAndPassword,
@@ -21,6 +21,8 @@ const Auth = () => {
 
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
+  const navStateData= useLocation()
+  console.log(navStateData)
 
   // SIGN IN
   const signInHandler = async (e) => {
@@ -39,7 +41,7 @@ const Auth = () => {
         user: userInfo.user,
       });
       setLoading({ ...loading, signIn: false });
-      navigate("/");
+      navigate( navStateData?.state?.redirect||"/");
     } catch (err) {
       if (err.code === "auth/invalid-email") {
         setError("Invalid email address");
@@ -89,6 +91,18 @@ const Auth = () => {
         </Link>
 
         <h1>Sign in</h1>
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateData?.state?.msg}
+          </small>
+        )}
 
         {/* SIGN IN FORM */}
         <form onSubmit={signInHandler}>
