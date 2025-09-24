@@ -10,6 +10,8 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
 app.use(cors({ origin: true }));
 
+
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -32,7 +34,10 @@ console.log(paymentIntent)
   } else {
     res.status(404).json({ message: "total must be geater tahn 0" });
   }
-});
+}
+
+
+);
 
 exports.api = onRequest(app);
 // For cost control, you can set the

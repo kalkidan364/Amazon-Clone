@@ -10,8 +10,9 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
 import { doc, setDoc, collection } from "firebase/firestore"; 
 import { useNavigate } from "react-router-dom";
+import { Type } from "../../Utility/actiontype";
 const Payment = () => {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket },dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -37,24 +38,28 @@ const Payment = () => {
       setProcessing(true);
 
       // 1. Create PaymentIntent from backend
-        const response = await axiosInstance(
-          {
-            method:"POST",
-            url:`/payment/create?total=${total*100}`
-          }
+        const response = await axiosInstance.post(
+          `/payment/create?total=${total * 100}`
         );
+
 
       const clientSecret = response.data?.clientSecret;
       console.log("🔑 Client secret:", clientSecret);
 
       // 2. Confirm payment with Stripe
-      const {paymentIntent} = await stripe.confirmCardPayment(clientSecret, {
+      const {paymentIntent, error} = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
           
         },
       });
-console.log(paymentIntent)
+      if(error){
+        console.log("stripe error", error.message)
+        setcardError(error.message);
+        setProcessing(false);
+        return;
+      }
+console.log("payment succeeded" ,paymentIntent)
 
 
 await setDoc(
@@ -65,7 +70,11 @@ await setDoc(
     created: paymentIntent.created,
   }
 );
-      
+   //empty  the basket
+   dispatch({type:Type.EMPTY_BASKET})
+
+
+
 setProcessing(false);
 navigate("/orders", {state:{msg:"you have placed new order"}})
       
