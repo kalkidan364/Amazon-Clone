@@ -1,4 +1,3 @@
-
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -32,9 +31,9 @@ app.post("/payment/create", async (req, res) => {
   }
 });
 
-app.listen(5000, (err)=>{
-    if (err) throw err;
-    console.log("amazon sever running on port :5000, http://localhost:5000");
+app.listen(5000, (err) => {
+  if (err) throw err;
+  console.log("amazon sever running on port :5000, http://localhost:5000");
 });
 
 // Create and deploy your first functions
