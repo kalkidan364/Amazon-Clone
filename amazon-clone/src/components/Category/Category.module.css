@@ -7,10 +7,11 @@
 }
 .Category img {
   width: 90%;
-
+  margin: 12px;
   object-fit: contain;
   max-height: 200px;
-  padding: 0px 10px;
+  
+  
 }
 .Category a {
   text-decoration: none;
@@ -36,3 +37,4 @@
   gap: 20px;
   width: 100%;
 }
+
