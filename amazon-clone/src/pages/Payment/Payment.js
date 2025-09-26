@@ -41,7 +41,7 @@ const Payment = () => {
         const response = await axiosInstance.post(
           `/payment/create?total=${total * 100}`
         );
-
+ 
 
       const clientSecret = response.data?.clientSecret;
       console.log("🔑 Client secret:", clientSecret);

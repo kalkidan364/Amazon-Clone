@@ -8,9 +8,7 @@ dotenv.config();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 const app = express();
-app.use(cors({ origin: true }));
-
-
+app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use(express.json());
 
@@ -27,17 +25,14 @@ app.post("/payment/create", async (req, res) => {
       amount: total,
       currency: "usd",
     });
-console.log(paymentIntent)
+    console.log(paymentIntent);
     res.status(201).json({
       clientSecret: paymentIntent.client_secret,
     });
   } else {
     res.status(404).json({ message: "total must be geater tahn 0" });
   }
-}
-
-
-);
+});
 
 exports.api = onRequest(app);
 // For cost control, you can set the
