@@ -19,9 +19,7 @@ const Routing = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
-        <Route
-          path="/payments"
-          element={
+        <Route path="/payments" element={
             <ProtecteRoute
               msg={"you must log in to pay"}
               redirect={"/payments"}
@@ -33,8 +31,7 @@ const Routing = () => {
           }
         />
         <Route
-          path="/orders"
-          element={
+          path="/orders" element={
             <ProtecteRoute
               msg={"you must log in to acces your orders"}
               redirect={"/orders"}
